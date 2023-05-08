@@ -1,5 +1,8 @@
 console.log("main.js is working");
 
+// set limit on number of cards that can be created
+const MAX_CARDS = 6;
+let numCards = 0;
 
 fetch("http://localhost:3000/Fruits")
     .then(res => res.json())
@@ -21,13 +24,20 @@ fetch("http://localhost:3000/Fruits")
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
+            // set max on fruit comparison selections
+            if(numCards >= MAX_CARDS) {
+                alert('You have selected the maximum number of fruit comparisons');
+                return;
+            }
+
             // retrieve selected fruit from dropdown list
             const fruitListValue = document.getElementById('fruitList').value;
             // search through fruits object and find fruit name that matches the selected dropdown list fruit
             // set fruit variable to matching dropdown selection
             const fruit = fruits.find(fruit => fruit.name === fruitListValue);
             
-            createCard(fruit)
+            createCard(fruit);
+            numCards ++;
         });
     });
 
@@ -69,4 +79,5 @@ function createCard(fruit) {
 // create function to delete card
 function deleteCard(e) {
     e.target.parentNode.remove();
+    numCards --;
 }
