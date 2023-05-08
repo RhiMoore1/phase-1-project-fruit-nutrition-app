@@ -60,4 +60,13 @@ function createCard(fruit) {
     deleteBtn.classList.add('delete-btn')
     deleteBtn.textContent = ' x ';
     cards.appendChild(deleteBtn);
+
+    // add eventListener to delete button
+    deleteBtn.addEventListener('click', deleteCard)
+}
+
+
+// create function to delete card
+function deleteCard(e) {
+    e.target.parentNode.remove();
 }
