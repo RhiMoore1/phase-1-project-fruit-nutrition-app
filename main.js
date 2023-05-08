@@ -122,4 +122,34 @@ function showFruitForm() {
     addNewFruitButton.addEventListener('click', () => {
         addNewFruitForm.style.display = 'block';
     })
+
+    addNewFruitForm.addEventListener('submit', handleSubmit);
+}
+
+function addAFruit(fruitObj) {
+    fetch("http://localhost:3000/Fruits", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body:JSON.stringify(fruitObj)
+    })
+    .then(res => res.json())
+    .then(fruit => console.log(fruit))
+}
+
+
+
+function handleSubmit(e) {
+    e.preventDefault();
+    let fruitObj = {
+        name:e.target.name.value,
+        calories:e.target.calories.value,
+        fat:e.target.fat.value,
+        sugar:e.target.sugar.value,
+        carbs:e.target.carbs.value,
+        protein:e.target.protein.value
+    };
+    //createCard(fruitObj)
+    addAFruit(fruitObj)
 }
