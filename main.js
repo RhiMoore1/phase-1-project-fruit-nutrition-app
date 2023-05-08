@@ -15,6 +15,22 @@ fetch("http://localhost:3000/Fruits")
             // apend each fruit name to option value and text
             fruitList.appendChild(option);
         })
+
+        // add submit button event listener to the form
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // retrieve selected fruit from dropdown list
+            const fruitListValue = document.getElementById('fruitList').value;
+            // search through fruits object and find fruit name that matches the selected dropdown list fruit
+            // set fruit variable to matching dropdown selection
+            const fruit = fruits.find(fruit => fruit.name === fruitListValue);
+            
+            console.log(fruit)
+            
+        });
+
     });
 
 
