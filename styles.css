@@ -76,3 +76,8 @@ p {
     margin-bottom: 10px;
   }
   
+  #addFruitsWrapper {
+    float: right;
+    margin-right: 5em;
+    margin-top: 10px;
+  }
