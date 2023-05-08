@@ -74,7 +74,7 @@ function createCard(fruit) {
     // iterate through the nutrition properties and create the corresponding DOM elements
     Object.keys(fruit.nutrition).forEach((key) => {
     const p = document.createElement("p");
-    p.innerText = `${key}: ${fruit.nutrition[key]}`;
+    p.innerText = `${key.padEnd(15, '-')}: ${fruit.nutrition[key]}`;
     cards.appendChild(p);
     });
 
