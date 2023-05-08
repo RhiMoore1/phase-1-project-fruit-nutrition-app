@@ -27,7 +27,7 @@ body {
     border: 2px double rgb(44, 51, 51);
     border-radius: 10px;
     text-align: center;
-    width: 30%;
+    width: 25%;
     margin: 1em;
     position: relative;
 }
@@ -45,12 +45,21 @@ body {
     margin-left: 10px;
 }
 
-
 #fruitList {
     margin-right: 1em;
 }
 
-
 #fruitSelectButton {
     margin-right: 4em;
 }
+
+h2 {
+    text-align: left;
+    margin-left: 1em;
+}
+
+p {
+    text-align: left;
+    margin-left: 1em;
+}
+
