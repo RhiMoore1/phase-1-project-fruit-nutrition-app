@@ -63,3 +63,16 @@ p {
     margin-left: 1em;
 }
 
+.add-fruits {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #addFruitsDiv form label {
+    margin-bottom: 1px;
+  }
+  
+  #addFruitsDiv form input[type="text"] {
+    margin-bottom: 10px;
+  }
+  

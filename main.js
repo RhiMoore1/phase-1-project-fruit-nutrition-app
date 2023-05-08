@@ -107,4 +107,3 @@ function clearSelections() {
     // reset counter  
     numCards = 0;  
 }
-
