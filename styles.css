@@ -29,4 +29,11 @@ body {
     text-align: center;
     width: 30%;
     margin: 1em;
+    position: relative;
 }
+
+.delete-btn {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+  }
