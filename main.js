@@ -19,7 +19,7 @@ fetch("http://localhost:3000/Fruits")
         // sets text and append
         placeholderOption.text = "Select a fruit";
         fruitList.appendChild(placeholderOption);
-        
+
         fruits.forEach(fruit => {
             // create an option for each individual fruit
             const option = document.createElement('option');
@@ -47,8 +47,14 @@ fetch("http://localhost:3000/Fruits")
             // set fruit variable to matching dropdown selection
             const fruit = fruits.find(fruit => fruit.name === fruitListValue);
             
+            // call createCard and increment
             createCard(fruit);
             numCards ++;
+
+            // grab clear button and attach eventListener
+            const clearButton = document.getElementById('clearButton');
+            clearButton.addEventListener('click', clearSelections);
+        
         });
     });
 
@@ -92,3 +98,13 @@ function deleteCard(e) {
     e.target.parentNode.remove();
     numCards --;
 }
+
+// create function to clear all selections and start over
+function clearSelections() {   
+    // set the selected index of fruitList to 0 so placeholder shows and clear divs
+    fruitList.selectedIndex = 0;
+    fruitsPickedDiv.innerHTML = '';
+    // reset counter  
+    numCards = 0;  
+}
+
