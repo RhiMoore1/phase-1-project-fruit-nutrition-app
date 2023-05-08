@@ -109,19 +109,17 @@ function clearSelections() {
     fruitsPickedDiv.innerHTML = '';
     // reset counter  
     numCards = 0;  
-    document.querySelector('.addFruitsForm').style.display = 'none';
+    document.getElementById('addFruitsForm').style.display = 'none';
 }
 
 // shows form when clicking add new fruit
 function showFruitForm() {
     // get add fruit button and add fruit form and assign variables
     const addNewFruitButton = document.getElementById('addNewFruit');
-    const addNewFruitForm = document.querySelector('.addFruitsForm')
+    const addNewFruitForm = document.getElementById('addFruitsForm')
 
     // add eventListener to display form
     addNewFruitButton.addEventListener('click', () => {
         addNewFruitForm.style.display = 'block';
     })
 }
-
-
