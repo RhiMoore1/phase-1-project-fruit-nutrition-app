@@ -123,3 +123,5 @@ function showFruitForm() {
         addNewFruitForm.style.display = 'block';
     })
 }
+
+
