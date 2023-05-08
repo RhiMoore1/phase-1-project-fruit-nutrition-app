@@ -41,4 +41,16 @@ body {
   #formDiv {
     display: flex;
     justify-content: center;
+    padding: 2em;
+    margin-left: 10px;
+}
+
+
+#fruitList {
+    margin-right: 1em;
+}
+
+
+#fruitSelectButton {
+    margin-right: 4em;
 }
