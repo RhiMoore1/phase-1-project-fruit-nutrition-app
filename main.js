@@ -109,6 +109,7 @@ function clearSelections() {
     fruitsPickedDiv.innerHTML = '';
     // reset counter  
     numCards = 0;  
+    document.querySelector('.addFruitsForm').style.display = 'none';
 }
 
 // shows form when clicking add new fruit
