@@ -9,6 +9,17 @@ fetch("http://localhost:3000/Fruits")
     .then(fruits => {
         // this is the select buttonsId
         const fruitList = document.getElementById('fruitList');
+        
+        // create a placeholder option in select dropdown list
+        const placeholderOption = document.createElement('option');
+        // makes placeholder unselectable
+        placeholderOption.disabled = true;
+        // sets as default
+        placeholderOption.selected = true;
+        // sets text and append
+        placeholderOption.text = "Select a fruit";
+        fruitList.appendChild(placeholderOption);
+        
         fruits.forEach(fruit => {
             // create an option for each individual fruit
             const option = document.createElement('option');
