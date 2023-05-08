@@ -27,10 +27,20 @@ fetch("http://localhost:3000/Fruits")
             // set fruit variable to matching dropdown selection
             const fruit = fruits.find(fruit => fruit.name === fruitListValue);
             
-            console.log(fruit)
-            
+            console.log(fruit) 
+            createCard(fruit)
         });
-
     });
 
+// create each fruit card function
+function createCard(fruit) {
+    // create card div elements in js and assign classList
+    const cards = document.createElement('div');
+    cards.classList = 'cards';
 
+    // create heading for card
+    const fruitHeading = document.createElement('h2');
+    // populate headings
+    fruitHeading.innerText = fruit.name;
+    console.log(fruitHeading)
+}
