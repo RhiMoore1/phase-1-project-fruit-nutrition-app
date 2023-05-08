@@ -27,7 +27,6 @@ fetch("http://localhost:3000/Fruits")
             // set fruit variable to matching dropdown selection
             const fruit = fruits.find(fruit => fruit.name === fruitListValue);
             
-            console.log(fruit) 
             createCard(fruit)
         });
     });
@@ -42,5 +41,18 @@ function createCard(fruit) {
     const fruitHeading = document.createElement('h2');
     // populate headings
     fruitHeading.innerText = fruit.name;
-    console.log(fruitHeading)
+    // apend heading to card
+    cards.appendChild(fruitHeading);
+
+    // iterate through the nutrition properties and create the corresponding DOM elements
+    Object.keys(fruit.nutrition).forEach((key) => {
+    const p = document.createElement("p");
+    p.innerText = `${key}: ${fruit.nutrition[key]}`;
+    cards.appendChild(p);
+    });
+
+    // append the new card to the fruitsPickedDiv
+    const fruitsPickedDiv = document.getElementById("fruitsPickedDiv");
+    fruitsPickedDiv.appendChild(cards);
+
 }
