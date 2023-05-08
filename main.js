@@ -31,8 +31,8 @@ fetch("http://localhost:3000/Fruits")
         })
 
         // add submit button event listener to the form
-        const form = document.querySelector('form');
-        form.addEventListener('submit', (e) => {
+        const selectFruitForm = document.getElementById('selectFruitForm');
+        selectFruitForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
             // set max on fruit comparison selections
@@ -123,4 +123,3 @@ function showFruitForm() {
         addNewFruitForm.style.display = 'block';
     })
 }
-
