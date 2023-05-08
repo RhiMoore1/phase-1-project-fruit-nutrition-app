@@ -55,4 +55,9 @@ function createCard(fruit) {
     const fruitsPickedDiv = document.getElementById("fruitsPickedDiv");
     fruitsPickedDiv.appendChild(cards);
 
+    // create delete button
+    const deleteBtn = document.createElement('button')
+    deleteBtn.classList.add('delete-btn')
+    deleteBtn.textContent = ' x ';
+    cards.appendChild(deleteBtn);
 }
