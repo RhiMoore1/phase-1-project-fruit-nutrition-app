@@ -1,0 +1,48 @@
+{
+    "Fruits": [
+        {
+            "id": 1,
+            "name": "Apple",
+            "nutrition": {
+                "calories": 52,
+                "fat": 0.4,
+                "sugar": 10.3,
+                "carbohydrates": 11.4,
+                "protein": 0.3
+            }
+        },
+        {
+            "id": 2,
+            "name": "Apricot",
+            "nutrition": {
+                "calories": 15,
+                "fat": 0.1,
+                "sugar": 3.2,
+                "carbohydrates": 3.9,
+                "protein": 0.5
+            }
+        },
+        {
+            "id": 3,
+            "name": "Banana",
+            "nutrition": {
+                "calories": 96,
+                "fat": 0.2,
+                "sugar": 17.2,
+                "carbohydrates": 22,
+                "protein": 1
+            }
+        },
+        {
+            "id": 4,
+            "name": "Cherries",
+            "nutrition": {
+                "calories": 50,
+                "fat": 0.3,
+                "sugar": 8,
+                "carbohydrates": 12,
+                "protein": 1
+            }
+        }
+    ]
+}
