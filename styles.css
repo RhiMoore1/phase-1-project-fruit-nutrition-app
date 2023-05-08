@@ -81,3 +81,8 @@ p {
     margin-right: 5em;
     margin-top: 10px;
   }
+
+  .addFruitsForm {
+    display: none;
+  }
+ 

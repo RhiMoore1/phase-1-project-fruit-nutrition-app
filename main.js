@@ -54,6 +54,9 @@ fetch("http://localhost:3000/Fruits")
             // grab clear button and attach eventListener
             const clearButton = document.getElementById('clearButton');
             clearButton.addEventListener('click', clearSelections);
+
+            // call showFruitForm
+            showFruitForm();
         
         });
     });
@@ -107,3 +110,16 @@ function clearSelections() {
     // reset counter  
     numCards = 0;  
 }
+
+// shows form when clicking add new fruit
+function showFruitForm() {
+    // get add fruit button and add fruit form and assign variables
+    const addNewFruitButton = document.getElementById('addNewFruit');
+    const addNewFruitForm = document.querySelector('.addFruitsForm')
+
+    // add eventListener to display form
+    addNewFruitButton.addEventListener('click', () => {
+        addNewFruitForm.style.display = 'block';
+    })
+}
+
