@@ -143,6 +143,7 @@ function addAFruit(fruitObj) {
 function handleSubmit(e) {
     e.preventDefault();
     let fruitObj = {
+        'name':e.target.name.value,
         'nutrition': {
             //name:e.target.name.value,
             calories:e.target.calories.value,
@@ -153,6 +154,31 @@ function handleSubmit(e) {
         }
         
     };
-    createCard(fruitObj)
+    createNewCard(fruitObj)
     addAFruit(fruitObj)
+}
+
+// add new function for adding fruit
+function createNewCard(fruitObj) {
+     // create card div elements in js and assign classList
+     const cards = document.createElement('div');
+     cards.classList = 'cards';
+ 
+     // create heading for card
+     const fruitHeading = document.createElement('h2');
+     // populate headings
+     fruitHeading.innerText = document.getElementById('fruitName').value;
+     // apend heading to card
+     cards.appendChild(fruitHeading);
+ 
+     // iterate through the nutrition properties and create the corresponding DOM elements
+     Object.keys(fruitObj.nutrition).forEach((key) => {
+     const p = document.createElement("p");
+     p.innerText = `${key.padEnd(15, '-')}: ${fruitObj.nutrition[key]}`;
+     cards.appendChild(p);
+     });
+ 
+     // append the new card to the fruitsPickedDiv
+     const fruitsPickedDiv = document.getElementById("fruitsPickedDiv");
+     fruitsPickedDiv.appendChild(cards);
 }
