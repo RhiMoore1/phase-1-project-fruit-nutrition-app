@@ -171,6 +171,12 @@ function handleSubmit(e) {
             protein:e.target.protein.value
         }   
     };
+     // set max on fruit comparison selections
+     if(numCards >= MAX_CARDS) {
+        alert('You have selected the maximum number of fruit comparisons');
+        return;
+    }
+    numCards ++;
     createCard(fruitObj)
     addAFruit(fruitObj)
     // clear form
