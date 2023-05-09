@@ -143,13 +143,16 @@ function addAFruit(fruitObj) {
 function handleSubmit(e) {
     e.preventDefault();
     let fruitObj = {
-        name:e.target.name.value,
-        calories:e.target.calories.value,
-        fat:e.target.fat.value,
-        sugar:e.target.sugar.value,
-        carbs:e.target.carbs.value,
-        protein:e.target.protein.value
+        'nutrition': {
+            //name:e.target.name.value,
+            calories:e.target.calories.value,
+            fat:e.target.fat.value,
+            sugar:e.target.sugar.value,
+            carbs:e.target.carbs.value,
+            protein:e.target.protein.value
+        }
+        
     };
-    //createCard(fruitObj)
+    createCard(fruitObj)
     addAFruit(fruitObj)
 }

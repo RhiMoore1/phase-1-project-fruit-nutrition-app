@@ -43,22 +43,6 @@
         "carbs": 12,
         "protein": 1
       }
-    },
-    {
-      "calories": "56",
-      "fat": "1",
-      "sugar": "25",
-      "carbs": "13",
-      "protein": "2",
-      "id": 5
-    },
-    {
-      "calories": "45",
-      "fat": "1",
-      "sugar": "24",
-      "carbs": "20",
-      "protein": "2",
-      "id": 6
     }
   ]
 }
