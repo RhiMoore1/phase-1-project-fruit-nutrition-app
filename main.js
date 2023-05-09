@@ -62,7 +62,7 @@ fetch("http://localhost:3000/Fruits")
     });
 
 // create each fruit card function
-function createCard(fruit) {
+function createCard(fruit, isDropDownSelected) {
     // create card div elements in js and assign classList
     const cards = document.createElement('div');
     cards.classList = 'cards';
@@ -70,7 +70,13 @@ function createCard(fruit) {
     // create heading for card
     const fruitHeading = document.createElement('h2');
     // populate headings
-    fruitHeading.innerText = fruit.name;
+    if(isDropDownSelected = false) {
+        fruitHeading.innerText = document.getElementById('fruitName').value;
+    } else {
+        fruitHeading.innerText = fruit.name
+    }
+
+    // fruitHeading.innerText = fruit.name;
     // apend heading to card
     cards.appendChild(fruitHeading);
 
@@ -144,6 +150,7 @@ function addAFruit(fruitObj) {
 
 function handleSubmit(e) {
     e.preventDefault();
+    let isDropDownSelected = false;
     let fruitObj = {
         'name':e.target.fruitName.value,
         'nutrition': {
@@ -152,43 +159,8 @@ function handleSubmit(e) {
             sugar:e.target.sugar.value,
             carbs:e.target.carbs.value,
             protein:e.target.protein.value
-        }
-        
+        }   
     };
-    createNewCard(fruitObj)
+    createCard(fruitObj)
     addAFruit(fruitObj)
-}
-
-// add new function for adding fruit
-function createNewCard(fruitObj) {
-     // create card div elements in js and assign classList
-     const cards = document.createElement('div');
-     cards.classList = 'cards';
- 
-     // create heading for card
-     const fruitHeading = document.createElement('h2');
-     // populate headings
-     fruitHeading.innerText = document.getElementById('fruitName').value;
-     // apend heading to card
-     cards.appendChild(fruitHeading);
- 
-     // iterate through the nutrition properties and create the corresponding DOM elements
-     Object.keys(fruitObj.nutrition).forEach((key) => {
-     const p = document.createElement("p");
-     p.innerText = `${key.padEnd(15, '-')}: ${fruitObj.nutrition[key]}`;
-     cards.appendChild(p);
-     });
- 
-     // append the new card to the fruitsPickedDiv
-     const fruitsPickedDiv = document.getElementById("fruitsPickedDiv");
-     fruitsPickedDiv.appendChild(cards);
-
-     // create delete button
-    const deleteBtn = document.createElement('button')
-    deleteBtn.classList.add('delete-btn')
-    deleteBtn.textContent = ' x ';
-    cards.appendChild(deleteBtn);
-
-    // add eventListener to delete button
-    deleteBtn.addEventListener('click', deleteCard)
 }
