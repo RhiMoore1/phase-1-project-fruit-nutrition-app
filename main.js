@@ -60,7 +60,7 @@ fetch("http://localhost:3000/Fruits")
 
             // call showFruitForm
             showFruitForm();
-        
+            
         });
     });
 
@@ -119,6 +119,12 @@ function clearSelections() {
     // reset counter  
     numCards = 0;  
     document.getElementById('addFruitsForm').style.display = 'none';
+    // clear form
+    document.forms['addFruitsForm'].reset()
+
+
+    // let addFruitsValues = document.querySelectorAll('.add-fruits');
+    // addFruitsValues.style.display = 'none'
 }
 
 // shows form when clicking add new fruit
@@ -133,6 +139,7 @@ function showFruitForm() {
     })
 
     addNewFruitForm.addEventListener('submit', handleSubmit);
+    
 }
 
 // need to clear form after adding fruit to add back to back fruits
@@ -166,4 +173,6 @@ function handleSubmit(e) {
     };
     createCard(fruitObj)
     addAFruit(fruitObj)
+    // clear form
+    document.forms['addFruitsForm'].reset()
 }
