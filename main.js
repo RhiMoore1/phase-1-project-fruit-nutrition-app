@@ -126,6 +126,8 @@ function showFruitForm() {
     addNewFruitForm.addEventListener('submit', handleSubmit);
 }
 
+// need to clear form after adding fruit to add back to back fruits
+// adds fruit to dropdown list but page needs refreshed first
 function addAFruit(fruitObj) {
     fetch("http://localhost:3000/Fruits", {
         method: "POST",
@@ -143,9 +145,8 @@ function addAFruit(fruitObj) {
 function handleSubmit(e) {
     e.preventDefault();
     let fruitObj = {
-        'name':e.target.name.value,
+        'name':e.target.fruitName.value,
         'nutrition': {
-            //name:e.target.name.value,
             calories:e.target.calories.value,
             fat:e.target.fat.value,
             sugar:e.target.sugar.value,
@@ -181,4 +182,13 @@ function createNewCard(fruitObj) {
      // append the new card to the fruitsPickedDiv
      const fruitsPickedDiv = document.getElementById("fruitsPickedDiv");
      fruitsPickedDiv.appendChild(cards);
+
+     // create delete button
+    const deleteBtn = document.createElement('button')
+    deleteBtn.classList.add('delete-btn')
+    deleteBtn.textContent = ' x ';
+    cards.appendChild(deleteBtn);
+
+    // add eventListener to delete button
+    deleteBtn.addEventListener('click', deleteCard)
 }

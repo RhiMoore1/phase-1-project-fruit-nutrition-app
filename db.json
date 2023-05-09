@@ -45,14 +45,37 @@
       }
     },
     {
+      "name": "Blueberry",
       "nutrition": {
-        "calories": "45",
-        "fat": "3",
-        "sugar": "24",
-        "carbs": "13",
-        "protein": "4"
+        "calories": "56",
+        "fat": "1",
+        "sugar": "25",
+        "carbs": "21",
+        "protein": "1"
       },
-      "id": 5
+      "id": 6
+    },
+    {
+      "name": "Strawberry",
+      "nutrition": {
+        "calories": "56",
+        "fat": "1",
+        "sugar": "25",
+        "carbs": "20",
+        "protein": "11"
+      },
+      "id": 7
+    },
+    {
+      "name": "Peach",
+      "nutrition": {
+        "calories": "67",
+        "fat": "1",
+        "sugar": "34",
+        "carbs": "44",
+        "protein": "3"
+      },
+      "id": 8
     }
   ]
 }
