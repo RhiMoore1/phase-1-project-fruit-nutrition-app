@@ -55,6 +55,9 @@ fetch("http://localhost:3000/Fruits")
             const clearButton = document.getElementById('clearButton');
             clearButton.addEventListener('click', clearSelections);
 
+            // set the selected index of fruitList to 0 so placeholder shows and clear divs
+            fruitList.selectedIndex = 0;
+
             // call showFruitForm
             showFruitForm();
         

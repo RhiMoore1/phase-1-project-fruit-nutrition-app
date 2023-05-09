@@ -47,11 +47,11 @@
     {
       "name": "Blueberry",
       "nutrition": {
-        "calories": "56",
-        "fat": "1",
-        "sugar": "24",
-        "carbs": "21",
-        "protein": "11"
+        "calories": "",
+        "fat": "",
+        "sugar": "",
+        "carbs": "",
+        "protein": ""
       },
       "id": 5
     }
