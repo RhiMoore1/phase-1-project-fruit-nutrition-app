@@ -31,39 +31,74 @@ fetch("http://localhost:3000/Fruits")
         })
 
         // add submit button event listener to the form
-        const selectFruitForm = document.getElementById('selectFruitForm');
-        selectFruitForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+        // const selectFruitForm = document.getElementById('selectFruitForm');
+        // selectFruitForm.addEventListener('submit', (e) => {
+        //     e.preventDefault();
 
-            // set max on fruit comparison selections
-            if(numCards >= MAX_CARDS) {
-                alert('You have selected the maximum number of fruit comparisons');
-                return;
-            }
+        //     // set max on fruit comparison selections
+        //     if(numCards >= MAX_CARDS) {
+        //         alert('You have selected the maximum number of fruit comparisons');
+        //         return;
+        //     }
 
-            // retrieve selected fruit from dropdown list
-            const fruitListValue = document.getElementById('fruitList').value;
-            // search through fruits object and find fruit name that matches the selected dropdown list fruit
-            // set fruit variable to matching dropdown selection
-            const fruit = fruits.find(fruit => fruit.name === fruitListValue);
+        //     // retrieve selected fruit from dropdown list
+        //     const fruitListValue = document.getElementById('fruitList').value;
+        //     // search through fruits object and find fruit name that matches the selected dropdown list fruit
+        //     // set fruit variable to matching dropdown selection
+        //     const fruit = fruits.find(fruit => fruit.name === fruitListValue);
             
-            // call createCard and increment
-            createCard(fruit);
-            numCards ++;
+        //     // call createCard and increment
+        //     createCard(fruit);
+        //     numCards ++;
 
-            // grab clear button and attach eventListener
-            const clearButton = document.getElementById('clearButton');
-            clearButton.addEventListener('click', clearSelections);
+        //     // grab clear button and attach eventListener
+        //     const clearButton = document.getElementById('clearButton');
+        //     clearButton.addEventListener('click', clearSelections);
 
-            // set the selected index of fruitList to 0 so placeholder shows and clear divs
-            fruitList.selectedIndex = 0;
+        //     // set the selected index of fruitList to 0 so placeholder shows and clear divs
+        //     fruitList.selectedIndex = 0;
 
-            // call showFruitForm
-            showFruitForm();
+        //     // call showFruitForm
+        //     showFruitForm();
             
-        });
+        //});
     });
 
+
+function handleSelectFruitFormSubmit(fruits) {
+    const selectFruitForm = document.getElementById('selectFruitForm');
+    selectFruitForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // set max on fruit comparison selections
+        if(numCards >= MAX_CARDS) {
+            alert('You have selected the maximum number of fruit comparisons');
+            return;
+        }
+
+        // retrieve selected fruit from dropdown list
+        const fruitListValue = document.getElementById('fruitList').value;
+        // search through fruits object and find fruit name that matches the selected dropdown list fruit
+        // set fruit variable to matching dropdown selection
+        const fruit = fruits.find(fruit => fruit.name === fruitListValue);
+        
+        // call createCard and increment
+        createCard(fruit);
+
+        numCards ++;
+
+        // grab clear button and attach eventListener
+        const clearButton = document.getElementById('clearButton');
+        clearButton.addEventListener('click', clearSelections);
+
+        // set the selected index of fruitList to 0 so placeholder shows and clear divs
+        const fruitList = document.getElementById('fruitList');
+        fruitList.selectedIndex = 0;
+
+        // call showFruitForm
+        showFruitForm();  
+    });
+}
 
 
 function createCardElement() {
