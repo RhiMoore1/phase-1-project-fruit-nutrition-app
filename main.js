@@ -97,6 +97,19 @@ function createNutritionalValues(fruit) {
     return properties;
 }
 
+
+// create delete button on cards
+function createDeleteButton() {
+    // create delete button
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('delete-btn');
+    deleteBtn.textContent = ' x ';
+
+    // add eventListener to delete button
+    deleteBtn.addEventListener('click', deleteCard);
+    return deleteBtn;
+}
+
 // create each fruit card function
 function createCard(fruit, isDropDownSelected) {
     // // create card div elements in js and assign classList
@@ -128,13 +141,13 @@ function createCard(fruit, isDropDownSelected) {
     fruitsPickedDiv.appendChild(cards);
 
     // create delete button
-    const deleteBtn = document.createElement('button')
-    deleteBtn.classList.add('delete-btn')
-    deleteBtn.textContent = ' x ';
+    // const deleteBtn = document.createElement('button')
+    // deleteBtn.classList.add('delete-btn')
+    // deleteBtn.textContent = ' x ';
     cards.appendChild(deleteBtn);
 
     // add eventListener to delete button
-    deleteBtn.addEventListener('click', deleteCard)
+   // deleteBtn.addEventListener('click', deleteCard)
 }
 
 
