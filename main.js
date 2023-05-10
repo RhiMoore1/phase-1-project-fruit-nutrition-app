@@ -151,10 +151,12 @@ function addAFruit(fruitObj) {
 }
 
 
-
+// handle submit on 'add new fruit' form
 function handleSubmit(e) {
     e.preventDefault();
+    // set argument to false for create card function fruit heading name
     let isDropDownSelected = false;
+    // create an object to pass to the 'add a fruit' function and POST
     let fruitObj = {
         'name':e.target.fruitName.value,
         'nutrition': {
@@ -165,8 +167,16 @@ function handleSubmit(e) {
             protein:e.target.protein.value
         }   
     };
+
+    // set max on fruit comparison selections
+    if(numCards >= MAX_CARDS) {
+        alert('You have selected the maximum number of fruit comparisons');
+    }
+    // increment cards
     numCards ++;
+    // pass create card the fruit obj
     createCard(fruitObj)
+    // pass add a fruit the fruit obj
     addAFruit(fruitObj)
     // clear form
     document.forms['addFruitsForm'].reset()
