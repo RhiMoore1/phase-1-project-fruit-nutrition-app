@@ -110,44 +110,20 @@ function createDeleteButton() {
     return deleteBtn;
 }
 
-// create each fruit card function
+
+// create the card 
 function createCard(fruit, isDropDownSelected) {
-    // // create card div elements in js and assign classList
-    // const cards = document.createElement('div');
-    // cards.classList = 'cards';
-
-    // // create heading for card
-    // const fruitHeading = document.createElement('h2');
-    // // populate headings
-    // if(isDropDownSelected = false) {
-    //     fruitHeading.innerText = document.getElementById('fruitName').value;
-    // } else {
-    //     fruitHeading.innerText = fruit.name
-    // }
-
-    // fruitHeading.innerText = fruit.name;
-    // apend heading to card
+    const cards = createCardElement();
+    const fruitHeading = createFruitHeading(fruit, isDropDownSelected);
     cards.appendChild(fruitHeading);
-
-    // iterate through the nutrition properties and create the corresponding DOM elements
-    // Object.keys(fruit.nutrition).forEach((key) => {
-    // const p = document.createElement("p");
-    // p.innerText = `${key.padEnd(15, '-')}: ${fruit.nutrition[key]}`;
-    // cards.appendChild(p);
-    // });
-
-    // append the new card to the fruitsPickedDiv
+    const properties = createNutritionalValues(fruit);
+    properties.forEach((property) => {
+        cards.appendChild(property);
+    });
+    const deleteBtn = createDeleteButton();
+    cards.appendChild(deleteBtn);
     const fruitsPickedDiv = document.getElementById("fruitsPickedDiv");
     fruitsPickedDiv.appendChild(cards);
-
-    // create delete button
-    // const deleteBtn = document.createElement('button')
-    // deleteBtn.classList.add('delete-btn')
-    // deleteBtn.textContent = ' x ';
-    cards.appendChild(deleteBtn);
-
-    // add eventListener to delete button
-   // deleteBtn.addEventListener('click', deleteCard)
 }
 
 
