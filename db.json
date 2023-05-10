@@ -9,7 +9,7 @@
         "sugar": 10.3,
         "carbs": 11.4,
         "protein": 0.3
-    }
+      }
     },
     {
       "name": "Apricot",
@@ -64,7 +64,7 @@
         "sugar": 8,
         "carbs": 12,
         "protein": 1
-    }
+      }
     },
     {
       "name": "Cranberry",
@@ -174,7 +174,7 @@
         "sugar": 10,
         "carbs": 15,
         "protein": 0.4
-     }
+      }
     },
     {
       "name": "Pineapple",

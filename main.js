@@ -49,22 +49,20 @@ function handleSelectFruitFormSubmit(fruits) {
     selectFruitForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // set max on fruit comparison selections
-        if(numCards >= MAX_CARDS) {
-            alert('You have selected the maximum number of fruit comparisons');
-            return;
-        }
-
         // retrieve selected fruit from dropdown list
         const fruitListValue = document.getElementById('fruitList').value;
         // search through fruits object and find fruit name that matches the selected dropdown list fruit
         // set fruit variable to matching dropdown selection
         const fruit = fruits.find(fruit => fruit.name === fruitListValue);
         
-        // call createCard and increment
-        createCard(fruit);
 
-        numCards ++;
+        // set max on fruit comparison selections
+        if(numCards >= MAX_CARDS) {
+            alert('You have selected the maximum number of fruit comparisons');
+        } else {
+            createCard(fruit);
+            numCards ++;
+        }
 
         // grab clear button and attach eventListener
         const clearButton = document.getElementById('clearButton');
@@ -105,7 +103,7 @@ function createFruitHeading(fruit, isDropDownSelected){
 function createNutritionalValues(fruit) {
     const properties = Object.keys(fruit.nutrition).map((key) => {
         const p = document.createElement("p");
-        p.innerText = `${key.padEnd(15, '-').toUpperCase()}: ${fruit.nutrition[key]}`;
+        p.innerText = `${key.padEnd(20, '-').toUpperCase()}: ${fruit.nutrition[key]}`;
         return p;
     });
     return properties;
@@ -207,11 +205,11 @@ function handleSubmit(e) {
     // set max on fruit comparison selections
     if(numCards >= MAX_CARDS) {
         alert('You have selected the maximum number of fruit comparisons');
+    } else {
+        createCard(fruitObj);
+        numCards ++;
     }
-    // increment cards
-    numCards ++;
-    // pass create card the fruit obj
-    createCard(fruitObj)
+  
     // pass add a fruit the fruit obj
     addAFruit(fruitObj)
     // clear form
