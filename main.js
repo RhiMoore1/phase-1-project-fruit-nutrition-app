@@ -8,27 +8,27 @@ fetch("http://localhost:3000/Fruits")
     .then(res => res.json())
     .then(fruits => {
         // this is the select buttonsId
-        const fruitList = document.getElementById('fruitList');
+        // const fruitList = document.getElementById('fruitList');
         
-        // create a placeholder option in select dropdown list
-        const placeholderOption = document.createElement('option');
-        // makes placeholder unselectable
-        placeholderOption.disabled = true;
-        // sets as default
-        placeholderOption.selected = true;
-        // sets text and append
-        placeholderOption.text = "Fruit";
-        fruitList.appendChild(placeholderOption);
+        // // create a placeholder option in select dropdown list
+        // const placeholderOption = document.createElement('option');
+        // // makes placeholder unselectable
+        // placeholderOption.disabled = true;
+        // // sets as default
+        // placeholderOption.selected = true;
+        // // sets text and append
+        // placeholderOption.text = "Fruit";
+        // fruitList.appendChild(placeholderOption);
 
-        fruits.forEach(fruit => {
-            // create an option for each individual fruit
-            const option = document.createElement('option');
-            // set the option's value and text to the fruit's name
-            option.value = fruit.name;
-            option.text = fruit.name;
-            // apend each fruit name to option value and text
-            fruitList.appendChild(option);
-        })
+        // fruits.forEach(fruit => {
+        //     // create an option for each individual fruit
+        //     const option = document.createElement('option');
+        //     // set the option's value and text to the fruit's name
+        //     option.value = fruit.name;
+        //     option.text = fruit.name;
+        //     // apend each fruit name to option value and text
+        //     fruitList.appendChild(option);
+        // })
 
         // add submit button event listener to the form
         // const selectFruitForm = document.getElementById('selectFruitForm');
@@ -63,6 +63,33 @@ fetch("http://localhost:3000/Fruits")
             
         //});
     });
+
+
+
+function createSelectionOptions(fruits) {
+    // this is the select buttonsId
+    const fruitList = document.getElementById('fruitList');
+        
+    // create a placeholder option in select dropdown list
+    const placeholderOption = document.createElement('option');
+    // makes placeholder unselectable
+    placeholderOption.disabled = true;
+    // sets as default
+    placeholderOption.selected = true;
+    // sets text and append
+    placeholderOption.text = "Select a fruit";
+    fruitList.appendChild(placeholderOption);
+
+    fruits.forEach(fruit => {
+        // create an option for each individual fruit
+        const option = document.createElement('option');
+        // set the option's value and text to the fruit's name
+        option.value = fruit.name;
+        option.text = fruit.name;
+        // apend each fruit name to option value and text
+        fruitList.appendChild(option);
+    })     
+}
 
 
 function handleSelectFruitFormSubmit(fruits) {
