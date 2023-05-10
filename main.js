@@ -168,6 +168,9 @@ function showFruitForm() {
         addNewFruitForm.style.display = 'block';
     })
     addNewFruitForm.addEventListener('submit', handleSubmit);
+    // hide form after submitting
+    addNewFruitForm.addEventListener('submit', () => document.getElementById('addFruitsForm').style.display = 'none')
+    
 }
 
 // need to clear form after adding fruit to add back to back fruits
