@@ -64,11 +64,22 @@ fetch("http://localhost:3000/Fruits")
         });
     });
 
-// create each fruit card function
-function createCard(fruit, isDropDownSelected) {
+
+
+function createCardElement() {
     // create card div elements in js and assign classList
     const cards = document.createElement('div');
     cards.classList = 'cards';
+    return cards;
+}
+
+
+
+// create each fruit card function
+function createCard(fruit, isDropDownSelected) {
+    // // create card div elements in js and assign classList
+    // const cards = document.createElement('div');
+    // cards.classList = 'cards';
 
     // create heading for card
     const fruitHeading = document.createElement('h2');
