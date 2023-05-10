@@ -105,7 +105,7 @@ function createFruitHeading(fruit, isDropDownSelected){
 function createNutritionalValues(fruit) {
     const properties = Object.keys(fruit.nutrition).map((key) => {
         const p = document.createElement("p");
-        p.innerText = `${key.padEnd(15, '-')}: ${fruit.nutrition[key]}`;
+        p.innerText = `${key.padEnd(15, '-').toUpperCase()}: ${fruit.nutrition[key]}`;
         return p;
     });
     return properties;
