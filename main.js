@@ -1,7 +1,7 @@
 console.log("main.js is working");
 
 // set limit on number of cards that can be created
-const MAX_CARDS = 6;
+const MAX_CARDS = 3;
 let numCards = 0;
 
 fetch("http://localhost:3000/Fruits")
@@ -120,11 +120,7 @@ function clearSelections() {
     numCards = 0;  
     document.getElementById('addFruitsForm').style.display = 'none';
     // clear form
-    document.forms['addFruitsForm'].reset()
-
-
-    // let addFruitsValues = document.querySelectorAll('.add-fruits');
-    // addFruitsValues.style.display = 'none'
+    document.forms['addFruitsForm'].reset()  
 }
 
 // shows form when clicking add new fruit
@@ -132,14 +128,12 @@ function showFruitForm() {
     // get add fruit button and add fruit form and assign variables
     const addNewFruitButton = document.getElementById('addNewFruit');
     const addNewFruitForm = document.getElementById('addFruitsForm')
-
+ 
     // add eventListener to display form
     addNewFruitButton.addEventListener('click', () => {
         addNewFruitForm.style.display = 'block';
     })
-
     addNewFruitForm.addEventListener('submit', handleSubmit);
-    
 }
 
 // need to clear form after adding fruit to add back to back fruits
@@ -171,11 +165,6 @@ function handleSubmit(e) {
             protein:e.target.protein.value
         }   
     };
-     // set max on fruit comparison selections
-     if(numCards >= MAX_CARDS) {
-        alert('You have selected the maximum number of fruit comparisons');
-        return;
-    }
     numCards ++;
     createCard(fruitObj)
     addAFruit(fruitObj)
