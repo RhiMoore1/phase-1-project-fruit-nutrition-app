@@ -17,7 +17,7 @@ fetch("http://localhost:3000/Fruits")
         // sets as default
         placeholderOption.selected = true;
         // sets text and append
-        placeholderOption.text = "Select a fruit";
+        placeholderOption.text = "Fruit";
         fruitList.appendChild(placeholderOption);
 
         fruits.forEach(fruit => {
