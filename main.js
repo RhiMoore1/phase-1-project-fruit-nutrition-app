@@ -74,14 +74,8 @@ function createCardElement() {
 }
 
 
-
-// create each fruit card function
-function createCard(fruit, isDropDownSelected) {
-    // // create card div elements in js and assign classList
-    // const cards = document.createElement('div');
-    // cards.classList = 'cards';
-
-    // create heading for card
+// create heading for card
+function createFruitHeading(fruit, isDropDownSelected){
     const fruitHeading = document.createElement('h2');
     // populate headings
     if(isDropDownSelected = false) {
@@ -89,6 +83,24 @@ function createCard(fruit, isDropDownSelected) {
     } else {
         fruitHeading.innerText = fruit.name
     }
+    return fruitHeading;
+}
+
+
+// create each fruit card function
+function createCard(fruit, isDropDownSelected) {
+    // // create card div elements in js and assign classList
+    // const cards = document.createElement('div');
+    // cards.classList = 'cards';
+
+    // // create heading for card
+    // const fruitHeading = document.createElement('h2');
+    // // populate headings
+    // if(isDropDownSelected = false) {
+    //     fruitHeading.innerText = document.getElementById('fruitName').value;
+    // } else {
+    //     fruitHeading.innerText = fruit.name
+    // }
 
     // fruitHeading.innerText = fruit.name;
     // apend heading to card
