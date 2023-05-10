@@ -87,6 +87,16 @@ function createFruitHeading(fruit, isDropDownSelected){
 }
 
 
+// create nutritional values
+function createNutritionalValues(fruit) {
+    const properties = Object.keys(fruit.nutrition).map((key) => {
+        const p = document.createElement("p");
+        p.innerText = `${key.padEnd(15, '-')}: ${fruit.nutrition[key]}`;
+        return p;
+    });
+    return properties;
+}
+
 // create each fruit card function
 function createCard(fruit, isDropDownSelected) {
     // // create card div elements in js and assign classList
@@ -107,11 +117,11 @@ function createCard(fruit, isDropDownSelected) {
     cards.appendChild(fruitHeading);
 
     // iterate through the nutrition properties and create the corresponding DOM elements
-    Object.keys(fruit.nutrition).forEach((key) => {
-    const p = document.createElement("p");
-    p.innerText = `${key.padEnd(15, '-')}: ${fruit.nutrition[key]}`;
-    cards.appendChild(p);
-    });
+    // Object.keys(fruit.nutrition).forEach((key) => {
+    // const p = document.createElement("p");
+    // p.innerText = `${key.padEnd(15, '-')}: ${fruit.nutrition[key]}`;
+    // cards.appendChild(p);
+    // });
 
     // append the new card to the fruitsPickedDiv
     const fruitsPickedDiv = document.getElementById("fruitsPickedDiv");
