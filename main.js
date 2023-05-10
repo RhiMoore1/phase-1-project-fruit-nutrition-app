@@ -12,6 +12,7 @@ function init() {
     .then(fruits => { 
         createSelectionOptions(fruits);
         handleSelectFruitFormSubmit(fruits);
+        showFruitForm();
     });
 }    
 init();
