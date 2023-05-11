@@ -29,7 +29,7 @@ function createSelectionOptions(fruits) {
     // sets as default
     placeholderOption.selected = true;
     // sets text and append
-    placeholderOption.text = "Select a fruit";
+    placeholderOption.text = "Fruit";
     fruitList.appendChild(placeholderOption);
 
     fruits.forEach(fruit => {
@@ -67,6 +67,7 @@ function handleSelectFruitFormSubmit(fruits) {
         // grab clear button and attach eventListener
         const clearButton = document.getElementById('clearButton');
         clearButton.addEventListener('click', clearSelections);
+        clearButton.addEventListener('click', () => document.getElementById('addFruitsForm').style.display = 'none')
 
         // set the selected index of fruitList to 0 so placeholder shows and clear divs
         const fruitList = document.getElementById('fruitList');
@@ -169,8 +170,7 @@ function showFruitForm() {
     })
     addNewFruitForm.addEventListener('submit', handleSubmit);
     // hide form after submitting
-    addNewFruitForm.addEventListener('submit', () => document.getElementById('addFruitsForm').style.display = 'none')
-    
+    addNewFruitForm.addEventListener('submit', () => document.getElementById('addFruitsForm').style.display = 'none');
 }
 
 // need to clear form after adding fruit to add back to back fruits
