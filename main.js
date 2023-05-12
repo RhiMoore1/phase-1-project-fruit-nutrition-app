@@ -18,6 +18,7 @@ function init() {
 init();
 
 
+// create selection dropdown list and sets a placeholder
 function createSelectionOptions(fruits) {
     // this is the select buttonsId
     const fruitList = document.getElementById('fruitList');
@@ -44,6 +45,7 @@ function createSelectionOptions(fruits) {
 }
 
 
+// handle selections from selectFruitDivForm including dropdown list submit and clear button 
 function handleSelectFruitFormSubmit(fruits) {
     const selectFruitForm = document.getElementById('selectFruitForm');
     selectFruitForm.addEventListener('submit', (e) => {
@@ -64,17 +66,14 @@ function handleSelectFruitFormSubmit(fruits) {
             numCards ++;
         }
 
-        // grab clear button and attach eventListener
+        // grab clear button and attach eventListener to clear selections and addFruitsForm
         const clearButton = document.getElementById('clearButton');
         clearButton.addEventListener('click', clearSelections);
         clearButton.addEventListener('click', () => document.getElementById('addFruitsForm').style.display = 'none')
 
         // set the selected index of fruitList to 0 so placeholder shows and clear divs
         const fruitList = document.getElementById('fruitList');
-        fruitList.selectedIndex = 0;
-
-        // call showFruitForm
-        showFruitForm();  
+        fruitList.selectedIndex = 0; 
     });
 }
 
