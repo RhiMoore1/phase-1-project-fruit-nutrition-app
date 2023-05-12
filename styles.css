@@ -7,6 +7,7 @@ body {
   background: #BEC954;
   padding-bottom: 2em;
 }
+
 #headingDiv h1 {
     color: black;
     margin: auto;
@@ -14,6 +15,12 @@ body {
     text-align: center;
     letter-spacing: 0.25em;
     font-size: 3em;
+}
+
+#headingDiv p {
+  text-align: center;
+  background: #BEC954;
+  justify-content: center;
 }
 
 
