@@ -1,7 +1,7 @@
 console.log("main.js is working");
 
 // set limit on number of cards that can be created
-const MAX_CARDS = 3;
+const MAX_CARDS = 6;
 let numCards = 0;
 
 
@@ -103,7 +103,10 @@ function createFruitHeading(fruit, isDropDownSelected){
 function createNutritionalValues(fruit) {
     const properties = Object.keys(fruit.nutrition).map((key) => {
         const p = document.createElement("p");
-        p.innerText = `${key.padEnd(20, '-').toUpperCase()}: ${fruit.nutrition[key]}`;
+        p.innerText = `${key.toUpperCase()}: `;
+        const span = document.createElement("span");
+        span.innerText = fruit.nutrition[key];
+        p.appendChild(span);
         return p;
     });
     return properties;
@@ -154,7 +157,7 @@ function clearSelections() {
     numCards = 0;  
     document.getElementById('addFruitsForm').style.display = 'none';
     // clear form
-    document.forms['addFruitsForm'].reset()  
+    document.forms['addFruitsForm'].reset()
 }
 
 // shows form when clicking add new fruit
@@ -172,9 +175,12 @@ function showFruitForm() {
     addNewFruitForm.addEventListener('submit', () => document.getElementById('addFruitsForm').style.display = 'none');
 }
 
+
+
+
 // need to clear form after adding fruit to add back to back fruits
 // adds fruit to dropdown list but page needs refreshed first
-function addAFruit(fruitObj) {
+function addAfruit(fruitObj) {
     fetch("http://localhost:3000/Fruits", {
         method: "POST",
         headers: {
@@ -185,6 +191,7 @@ function addAFruit(fruitObj) {
     .then(res => res.json())
     .then(fruit => console.log(fruit))
 }
+
 
 
 // handle submit on 'add new fruit' form
@@ -204,6 +211,7 @@ function handleSubmit(e) {
         }   
     };
 
+
     // set max on fruit comparison selections
     if(numCards >= MAX_CARDS) {
         alert('You have selected the maximum number of fruit comparisons');
@@ -213,7 +221,7 @@ function handleSubmit(e) {
     }
   
     // pass add a fruit the fruit obj
-    addAFruit(fruitObj)
+    addAfruit(fruitObj)
     // clear form
     document.forms['addFruitsForm'].reset()
 }

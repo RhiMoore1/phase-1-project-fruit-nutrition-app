@@ -1,8 +1,12 @@
 body {
     font-family: futura;
-    background: #BEC954;
+    background: rgba(255, 155, 0, 0.2);
 }
 
+#headingDiv {
+  background: #BEC954;
+  padding-bottom: 2em;
+}
 #headingDiv h1 {
     color: black;
     margin: auto;
@@ -12,24 +16,47 @@ body {
     font-size: 3em;
 }
 
-#headingDiv p {
-    text-align: center;
-}
 
 #fruitsPickedDiv {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .cards {
-    background: blanchedalmond;
+    background: white;
     border: 2px double rgb(44, 51, 51);
-    border-radius: 10px;
+    border-radius: 5px;
     text-align: center;
-    width: 20%;
-    margin: 1em;
+    width: 30%;
+    margin: 1em 1%;
     position: relative;
+}
+
+.cards h2 {
+  background: orange;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding: 0.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+p {
+  display: flex;
+  justify-content: space-between;
+}
+
+span {
+  text-align: right;
+}
+
+.cards p {
+  padding-right: 1em;
 }
 
 .delete-btn {
@@ -51,7 +78,7 @@ body {
 }
 
 #fruitSelectButton {
-    margin-right: 4em;
+    margin-right: 15em;
 }
 
 h2 {
@@ -89,7 +116,9 @@ p {
     border-style: double;
     padding: 1em;
     margin: 20px;
-    background-color: blanchedalmond;
+    letter-spacing: 0.1;
+    background-color: orange;
+    text-transform: uppercase;
   }
  
 
@@ -99,4 +128,8 @@ p {
     
   }
 
+  #clearButton {
+    margin-left: 1em;
+  }
 
+ 
