@@ -11,7 +11,7 @@ function init() {
     .then(res => res.json())
     .then(fruits => { 
         createSelectionOptions(fruits);
-        handleSelectFruitFormSubmit(fruits);
+        handleSelectFruit(fruits);
         showFruitForm();
     });
 }    
@@ -45,12 +45,10 @@ function createSelectionOptions(fruits) {
 }
 
 
-// handle selections from selectFruitDivForm including dropdown list submit and clear button 
-function handleSelectFruitFormSubmit(fruits) {
-    const selectFruitForm = document.getElementById('selectFruitForm');
-    selectFruitForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
+// handle selections from selectFruitDiv including dropdown list fruit selection and clear button 
+function handleSelectFruit(fruits) {
+    const fruitSelectButton = document.getElementById('fruitSelectButton');
+    fruitSelectButton.addEventListener('click', () => {
         // retrieve selected fruit from dropdown list
         const fruitListValue = document.getElementById('fruitList').value;
         // search through fruits object and find fruit name that matches the selected dropdown list fruit
@@ -74,6 +72,7 @@ function handleSelectFruitFormSubmit(fruits) {
         // set the selected index of fruitList to 0 so placeholder shows and clear divs
         const fruitList = document.getElementById('fruitList');
         fruitList.selectedIndex = 0; 
+
     });
 }
 
