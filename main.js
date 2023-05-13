@@ -163,12 +163,19 @@ function clearSelections() {
 function showFruitForm() {
     // get add fruit button and add fruit form and assign variables
     const addNewFruitButton = document.getElementById('addNewFruit');
-    const addNewFruitForm = document.getElementById('addFruitsForm')
- 
-    // add eventListener to display form
+    const addNewFruitForm = document.getElementById('addFruitsForm');
+
+    // prevent form from showing if MAX_CARDS
     addNewFruitButton.addEventListener('click', () => {
-        addNewFruitForm.style.display = 'block';
-    })
+        if(numCards >= MAX_CARDS) {
+            alert('You have selected the maximum number of fruit comparisons');
+        }
+        if(numCards < MAX_CARDS) {
+            addNewFruitForm.style.display = 'block';
+        }
+    });
+
+
     addNewFruitForm.addEventListener('submit', handleSubmit);
     // hide form after submitting
     addNewFruitForm.addEventListener('submit', () => document.getElementById('addFruitsForm').style.display = 'none');
