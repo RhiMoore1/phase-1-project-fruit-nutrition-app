@@ -1,6 +1,4 @@
 # phase-1-project-fruit-nutrition-app
-An app that allows users to pick different fruit and view the nutritional information of the fruit.
-
 The Fruit Nutrition App allows users to pick different fruit and view nutritional information of the fruit.
 A user is also able to customize the app by adding new fruit and nutritional profiles to the fruit app
 database.
@@ -27,10 +25,19 @@ to the screen.
 
 There is a 'Max Card' limit of 6 cards allowed for comparisons at one time.  The 'Max Card' count was 
 implemented to keep screen clutter down and improve user experience via ease of visual comparison between 
-fruits.  In order to reduce the number of cards displayed on the screen, the user has two options.  
+fruits.  
 
-1. By clicking on the small 'x' in the upper right hand corner of the fruit card, the card is removed from the screen and the current card count is lowered by one.  The database is not effected by this card
-removal.  
+
+If there are already 6 cards displayed on the screen, choosing a fruit from the dropdown list and 
+clicking the 'Select Fruit' button will display an alert 'You have selected the maximum number of fruit 
+comparisons' and no new cards are added to the screen.  The same alert is displayed if the 'Add New Fruit'
+button is clicked and the form is not displayed. 
+
+
+In order to reduce the number of cards displayed on the screen, the user has two options.  
+
+1. By clicking on the small 'x' in the upper right hand corner of the fruit card, the card is removed from 
+the screen and the current card count is lowered by one.  The database is not effected by this card removal.  
 
 2. If all of the cards need to be removed from the screen to start over with the comparisons, the 'Clear 
 Selections' button is the best option. This button will remove all displayed fruit cards from the screen, 

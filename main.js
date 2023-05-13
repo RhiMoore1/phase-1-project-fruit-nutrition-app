@@ -1,5 +1,3 @@
-console.log("main.js is working");
-
 // set limit on number of cards that can be created
 const MAX_CARDS = 6;
 let numCards = 0;
@@ -22,6 +20,7 @@ init();
 function createSelectionOptions(fruits) {
     // this is the select buttonsId
     const fruitList = document.getElementById('fruitList');
+    const existingOptions = Array.from(fruitList.options).map(option => option.value);
         
     // create a placeholder option in select dropdown list
     const placeholderOption = document.createElement('option');
@@ -32,8 +31,17 @@ function createSelectionOptions(fruits) {
     // sets text and append
     placeholderOption.text = "Fruit";
     fruitList.appendChild(placeholderOption);
+    
+    // adds fruit to dropdown
+    addToFruitList(fruits);    
+}
 
-    fruits.forEach(fruit => {
+// create the fruit option value and text and append to fruitList dropdown
+function addToFruitList(fruitObject) {
+    const fruitList = document.getElementById('fruitList');
+    fruitObject.forEach(fruit => {
+        // prevent duplicate fruit names
+        if(!fruitObject.includes(fruit.name)) {
         // create an option for each individual fruit
         const option = document.createElement('option');
         // set the option's value and text to the fruit's name
@@ -41,7 +49,8 @@ function createSelectionOptions(fruits) {
         option.text = fruit.name;
         // apend each fruit name to option value and text
         fruitList.appendChild(option);
-    })     
+        }
+    })  
 }
 
 
@@ -72,7 +81,6 @@ function handleSelectFruit(fruits) {
         // set the selected index of fruitList to 0 so placeholder shows and clear divs
         const fruitList = document.getElementById('fruitList');
         fruitList.selectedIndex = 0; 
-
     });
 }
 
@@ -190,10 +198,7 @@ function showFruitForm() {
 }
 
 
-
-
-// need to clear form after adding fruit to add back to back fruits
-// adds fruit to dropdown list but page needs refreshed first
+// adds newly created fruit to card and dropdown list
 function addAfruit(fruitObj) {
     fetch("http://localhost:3000/Fruits", {
         method: "POST",
@@ -204,8 +209,15 @@ function addAfruit(fruitObj) {
     })
     .then(res => res.json())
     .then(fruit => console.log(fruit))
-}
 
+    // updates dropdown list without page refresh
+    fetch("http://localhost:3000/Fruits")
+    .then(res => res.json())
+    .then(fruits => { 
+         addToFruitList(fruits)
+    });
+
+}
 
 
 // handle submit on 'add new fruit' form
@@ -224,7 +236,6 @@ function handleSubmit(e) {
             protein:e.target.protein.value
         }   
     };
-
 
     // set max on fruit comparison selections
     if(numCards >= MAX_CARDS) {
