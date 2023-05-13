@@ -252,6 +252,17 @@
         "carbs": 8,
         "protein": 0.6
       }
+    },
+    {
+      "name": "Blueberry",
+      "nutrition": {
+        "calories": "56",
+        "fat": "1",
+        "sugar": "33",
+        "carbs": "20",
+        "protein": "4"
+      },
+      "id": 24
     }
   ]
 }

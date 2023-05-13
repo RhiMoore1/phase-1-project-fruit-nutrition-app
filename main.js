@@ -172,6 +172,14 @@ function showFruitForm() {
     addNewFruitForm.addEventListener('submit', handleSubmit);
     // hide form after submitting
     addNewFruitForm.addEventListener('submit', () => document.getElementById('addFruitsForm').style.display = 'none');
+    const button = document.getElementById('submit');
+    // add event to change submit button color on mouseover
+    button.addEventListener('mouseover', () => {
+        button.style.backgroundColor = 'lightgreen'
+    });
+    button.addEventListener('mouseout', function() {
+    button.style.backgroundColor = ''; 
+    });
 }
 
 
