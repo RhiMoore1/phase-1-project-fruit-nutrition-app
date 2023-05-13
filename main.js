@@ -21,7 +21,8 @@ function createSelectionOptions(fruits) {
     // this is the select buttonsId
     const fruitList = document.getElementById('fruitList');
     const existingOptions = Array.from(fruitList.options).map(option => option.value);
-        
+     
+    fruitList.innerHTML = '';
     // create a placeholder option in select dropdown list
     const placeholderOption = document.createElement('option');
     // makes placeholder unselectable
@@ -33,15 +34,9 @@ function createSelectionOptions(fruits) {
     fruitList.appendChild(placeholderOption);
     
     // adds fruit to dropdown
-    addToFruitList(fruits);    
-}
-
-// create the fruit option value and text and append to fruitList dropdown
-function addToFruitList(fruitObject) {
-    const fruitList = document.getElementById('fruitList');
-    fruitObject.forEach(fruit => {
+    fruits.forEach(fruit => {
         // prevent duplicate fruit names
-        if(!fruitObject.includes(fruit.name)) {
+        if(!fruits.includes(fruit.name)) {
         // create an option for each individual fruit
         const option = document.createElement('option');
         // set the option's value and text to the fruit's name
@@ -199,7 +194,7 @@ function showFruitForm() {
 
 
 // adds newly created fruit to card and dropdown list
-function addAfruit(fruitObj) {
+function addAfruit(fruitObj, fruits) {
     fetch("http://localhost:3000/Fruits", {
         method: "POST",
         headers: {
@@ -210,13 +205,11 @@ function addAfruit(fruitObj) {
     .then(res => res.json())
     .then(fruit => console.log(fruit))
 
-    // updates dropdown list without page refresh
     fetch("http://localhost:3000/Fruits")
     .then(res => res.json())
     .then(fruits => { 
-         addToFruitList(fruits)
+        createSelectionOptions(fruits);
     });
-
 }
 
 
