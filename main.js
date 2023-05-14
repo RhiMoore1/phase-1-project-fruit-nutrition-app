@@ -15,12 +15,40 @@ function init() {
 }    
 init();
 
+function updateInterface() {
+    fetch("http://localhost:3000/Fruits")
+    .then(res => res.json())
+    .then(fruits => { 
+        createSelectionOptions(fruits);
+        updateSelectFruit(fruits);
+        showFruitForm();
+    });
+}
+
+// handle selections from selectFruitDiv including dropdown list fruit selection and clear button 
+function updateSelectFruit(fruits) {
+    const fruitSelectButton = document.getElementById('fruitSelectButton');
+    fruitSelectButton.addEventListener('click', () => {
+        // retrieve selected fruit from dropdown list
+        const fruitListValue = document.getElementById('fruitList').value;
+        // search through fruits object and find fruit name that matches the selected dropdown list fruit
+        // set fruit variable to matching dropdown selection
+        const fruit = fruits.find(fruit => fruit.name === fruitListValue);
+
+        createCard(fruit);
+        numCards ++;
+
+        // set the selected index of fruitList to 0 so placeholder shows and clear divs
+        const fruitList = document.getElementById('fruitList');
+        fruitList.selectedIndex = 0; 
+    });
+}
+
 
 // create selection dropdown list and sets a placeholder
 function createSelectionOptions(fruits) {
     // this is the select buttonsId
     const fruitList = document.getElementById('fruitList');
-    const existingOptions = Array.from(fruitList.options).map(option => option.value);
      
     fruitList.innerHTML = '';
     // create a placeholder option in select dropdown list
@@ -89,7 +117,7 @@ function createCardElement() {
 
 
 // create heading for card
-function createFruitHeading(fruit, isDropDownSelected){
+function createFruitHeading(fruit){
     const fruitHeading = document.createElement('h2');
     // populate headings
     if(isDropDownSelected = false) {
@@ -194,7 +222,7 @@ function showFruitForm() {
 
 
 // adds newly created fruit to card and dropdown list
-function addAfruit(fruitObj, fruits) {
+function addAfruit(fruitObj) {
     fetch("http://localhost:3000/Fruits", {
         method: "POST",
         headers: {
@@ -203,13 +231,7 @@ function addAfruit(fruitObj, fruits) {
         body:JSON.stringify(fruitObj)
     })
     .then(res => res.json())
-    .then(fruit => console.log(fruit))
-
-    fetch("http://localhost:3000/Fruits")
-    .then(res => res.json())
-    .then(fruits => { 
-        createSelectionOptions(fruits);
-    });
+    .then(fruit => updateInterface())
 }
 
 

@@ -31,7 +31,7 @@ fruits.
 If there are already 6 cards displayed on the screen, choosing a fruit from the dropdown list and 
 clicking the 'Select Fruit' button will display an alert 'You have selected the maximum number of fruit 
 comparisons' and no new cards are added to the screen.  The same alert is displayed if the 'Add New Fruit'
-button is clicked and the form is not displayed. 
+button is clicked and the fruit form will not be displayed. 
 
 
 In order to reduce the number of cards displayed on the screen, the user has two options.  
@@ -43,3 +43,7 @@ the screen and the current card count is lowered by one.  The database is not ef
 Selections' button is the best option. This button will remove all displayed fruit cards from the screen, 
 as well as the 'Add New Fruit' form, if currently displayed.  Again, the database is not effected by these
 removals.  The card count is then set to 0.
+
+
+After clearing the screen the user is now able to begin populating new fruit cards once again by utilizing 
+the dropdown list or by adding a new fruit via the form.
