@@ -1,14 +1,18 @@
 body {
     font-family: futura;
-    background: rgba(255, 155, 0, 0.2);
+    background: #f9f9fa;
+    min-width: 835px;
+    /* background: rgba(255, 155, 0, 0.2); */
 }
+/* #94c954 */
 
 #headingDiv {
-  background: #BEC954;
+  background: #90d8e7;
   padding-bottom: 2em;
 }
 
 #headingDiv h1 {
+    /* color: rgb(44, 51, 51); */
     color: black;
     margin: auto;
     padding: .5em;
@@ -19,7 +23,7 @@ body {
 
 #headingDiv p {
   text-align: center;
-  background: #BEC954;
+  /* background: #94c954; */
   justify-content: center;
 }
 
@@ -40,10 +44,11 @@ body {
     width: 30%;
     margin: 1em 1%;
     position: relative;
+    min-width: 280px;
 }
 
 .cards h2 {
-  background: orange;
+  background: #d7f4c5;
   margin-block-start: 0;
   margin-block-end: 0;
   margin-inline-start: 0px;
@@ -124,7 +129,7 @@ p {
     padding: 1em;
     margin: 20px;
     letter-spacing: 0.1;
-    background-color: orange;
+    background-color: #d7f4c5;
     text-transform: uppercase;
   }
  
