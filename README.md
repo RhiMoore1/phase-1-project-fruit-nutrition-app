@@ -6,7 +6,12 @@ database.
 All fruit information used in the Fruit Nutrition App was gathered from the Fruityvice api database and
 is based off 100 grams of fruit which is just under half a cup.
 
+## Start the Server and Open html in Browser
+run the following command in the terminal to start the server for the fetch request: json-server --watch db.json --port 3000
 
+open a second terminal and run the command to open the app in the browser: open index.html
+
+### Navigating the Fruit App
 To get started select a fruit from the 'Fruit' dropdown list and then click the 'Select Fruit' button.
 A card is then displayed on the screen containing the name of the choosen fruit and the coresponding
 nutritional information including fat, calories, carbs and protein.  By clicking on the 'Fruit' dropdown 
