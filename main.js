@@ -205,6 +205,7 @@ function showFruitForm() {
             addNewFruitForm.style.display = 'block';
         }
     });
+    
 
 
     addNewFruitForm.addEventListener('submit', handleSubmit);
@@ -215,8 +216,8 @@ function showFruitForm() {
     button.addEventListener('mouseover', () => {
         button.style.backgroundColor = 'lightgreen'
     });
-    button.addEventListener('mouseout', function() {
-    button.style.backgroundColor = ''; 
+    button.addEventListener('mouseout', () => {
+        button.style.backgroundColor = ''; 
     });
 }
 
